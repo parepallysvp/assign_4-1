@@ -30,7 +30,9 @@ $statement->closeCursor();
        <?php foreach($categories as $category){ ?> 
 	<tr>
 	 <td><?php echo $category['categoryName']; ?></td>
-	 <td><input type="submit" value="delete"></td>
+	 <td><form action='delete_category.php' method='post'>
+	     <input type='hidden' name='category_name' value='<?php echo $category['categoryName']; ?>' >
+             <input type="submit" value="delete"></form></td>
 	</tr>
 	<?php } ?>
         <!-- add code for the rest of the table here -->
@@ -38,8 +40,8 @@ $statement->closeCursor();
     </table>
 
     <h2>Add Category</h2>
-    <form>
-   <p><label>Name:</label>  <input type='text' name='category'>   <input type='submit' name='Add Category'></p>
+   <form action='add_category.php' method='post' id='category_list'>
+   <p><label>Name:</label>  <input type='text' name='category_name'>   <input type='submit' value='Add'></p>
 </form>
     
     <!-- add code for the form here -->
